@@ -20,3 +20,5 @@ C:\Users\Akira\source\repos\EmployeeList\EmployeeList\obj\Debug\EmployeeList.exe
 C:\Users\Akira\source\repos\EmployeeList\EmployeeList\obj\Debug\EmployeeList.pdb
 C:\Users\Akira\source\repos\EmployeeList\EmployeeList\obj\Debug\AddEmployeeWindow.g.cs
 C:\Users\Akira\source\repos\EmployeeList\EmployeeList\obj\Debug\AddEmployeeWindow.baml
+C:\Users\Akira\source\repos\EmployeeList\EmployeeList\obj\Debug\EmployeeList.Migrations.InitialCreate.resources
+C:\Users\Akira\source\repos\EmployeeList\EmployeeList\obj\Debug\EmployeeList.Migrations.MyMigration.resources

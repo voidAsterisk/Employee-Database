@@ -83,6 +83,15 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\201803160336417_InitialCreate.cs" />
+    <Compile Include="Migrations\201803160336417_InitialCreate.Designer.cs">
+      <DependentUpon>201803160336417_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803160530153_MyMigration.cs" />
+    <Compile Include="Migrations\201803160530153_MyMigration.Designer.cs">
+      <DependentUpon>201803160530153_MyMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -96,6 +105,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Migrations\201803160336417_InitialCreate.resx">
+      <DependentUpon>201803160336417_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803160530153_MyMigration.resx">
+      <DependentUpon>201803160530153_MyMigration.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

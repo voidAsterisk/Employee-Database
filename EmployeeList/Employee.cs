@@ -16,7 +16,6 @@ namespace EmployeeList
         public Employee()
         {
         }
-
         public int EmployeeID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -29,15 +28,7 @@ namespace EmployeeList
 
         }
         public DbSet<Employee> Employees { get; set; }
-    }
 
-    public static class ContextContainer
-    {
-        public static Context Ctx;
 
-        public static void Initialize()
-        {
-            Ctx = new Context();
-        }
     }
 }

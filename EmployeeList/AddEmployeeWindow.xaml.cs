@@ -51,9 +51,11 @@ namespace EmployeeList
             Employee emp = new Employee() { FirstName = firstNameBox.Text, LastName = lastNameBox.Text };
             try
             {
-
-                ContextContainer.Ctx.Employees.Add(emp);
-                ContextContainer.Ctx.SaveChanges();
+                using (var ctx = new Context())
+                {
+                    ctx.Employees.Add(emp);
+                    ctx.SaveChanges();
+                }
 
             } catch (Exception ex)
             {

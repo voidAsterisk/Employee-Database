@@ -32,9 +32,6 @@ namespace EmployeeList
         {
             InitializeComponent();
 
-            // Initialize the database context
-            ContextContainer.Initialize();
-
             // Add columns to employee datagrid list
             DataGridTextColumn textColumn = new DataGridTextColumn();
             textColumn.Header = "First Name";
@@ -44,6 +41,11 @@ namespace EmployeeList
             textColumn = new DataGridTextColumn();
             textColumn.Header = "Last Name";
             textColumn.Binding = new Binding("LastName");
+            employeeDataGrid.Columns.Add(textColumn);
+
+            textColumn = new DataGridTextColumn();
+            textColumn.Header = "Employee ID";
+            textColumn.Binding = new Binding("EmployeeID");
             employeeDataGrid.Columns.Add(textColumn);
 
             UpdateEmployeeGrid();
@@ -73,12 +75,29 @@ namespace EmployeeList
         public void UpdateEmployeeGrid()
         {
             employeeDataGrid.Items.Clear();
-            IQueryable<Employee> rtn = from temp in ContextContainer.Ctx.Employees select temp;
-            var list = rtn.ToList();
+
+            var list = new Context().Employees.ToList();
             for (int i = 0; i < list.Count(); i++)
             {
+                list[i].EmployeeID = i;
                 employeeDataGrid.Items.Add(list[i]);
             }
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            int selected = employeeDataGrid.SelectedIndex;
+            if (selected == -1) return;
+
+            // Get employee index from the datalist
+            Employee emp = (Employee)employeeDataGrid.SelectedItem;
+            using (var ctx = new Context())
+            {
+                ctx.Employees.Attach(emp);
+                ctx.Employees.Remove(emp);
+                ctx.SaveChanges();
+            }
+            UpdateEmployeeGrid();
         }
     }
 }
